@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
   <title>Syed Sameer | Aspiring Cybersecurity Expert</title>
 
-  <meta name="description" content=" Syed Sameer — aspiring cybersecurity expert. Projects in cryptography, phishing detection, network sniffing, and secure registration systems.">
+  <meta name="description" content="Syed Sameer — aspiring cybersecurity expert. Projects in cryptography, phishing detection, network sniffing, and secure registration systems.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -213,7 +215,7 @@ section h2 {
   margin-bottom: 20px;
 }
 .certificate-box {
-  background: rgba(40, 40, 40, 0.9);
+  background: var(--surface);
   padding: 15px 20px;
   border-radius: 10px;
   box-shadow: none;
@@ -329,205 +331,6 @@ section h2 {
   canvas#star-bg { background: #000; }
 }
   
-/* ==========================================================================
-   🐱 PURE BLACK INTRO: WHITE CAT DRAGS LOGO TO CENTER
-   ========================================================================== */
-#cat-intro-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: #000000;
-  z-index: 99999999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  user-select: none;
-  cursor: pointer;
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-#cat-intro-overlay.intro-hidden {
-  opacity: 0;
-  transform: scale(1.05);
-  pointer-events: none;
-}
-
-/* The Moving Stage */
-.intro-stage {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* The Cat & Logo Delivery Group */
-.cat-delivery-group {
-  position: absolute;
-  top: 50%;
-  left: -180px;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  animation: walkToCenter 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-@keyframes walkToCenter {
-  0% {
-    left: -180px;
-  }
-  100% {
-    left: calc(50% - 70px);
-  }
-}
-
-/* The Animated Walking White Cat */
-.intro-cat-sprite {
-  width: 32px;
-  height: 32px;
-  image-rendering: pixelated;
-  background-image: url('data:image/gif;base64,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');
-  background-position: -96px 0px; /* Running East */
-  animation: catLegsWalking 0.25s infinite steps(2);
-  transform: scale(1.6);
-  transform-origin: center;
-}
-
-@keyframes catLegsWalking {
-  0% {
-    background-position: -96px 0px;
-  }
-  100% {
-    background-position: -96px -32px;
-  }
-}
-
-/* The Logo Being Dragged */
-.intro-dragged-logo {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  object-fit: contain;
-  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.25));
-  animation: logoTiltDrag 0.3s infinite ease-in-out alternate;
-  transition: transform 0.4s ease;
-}
-
-@keyframes logoTiltDrag {
-  0% {
-    transform: rotate(-6deg) translateY(2px);
-  }
-  100% {
-    transform: rotate(4deg) translateY(-2px);
-  }
-}
-
-/* Post-Placement Cat Sits & Wags */
-.intro-cat-sprite.cat-placed {
-  animation: catSitPleased 0.8s forwards steps(1);
-}
-
-@keyframes catSitPleased {
-  0% {
-    background-position: -224px -96px; /* Alert */
-  }
-  50% {
-    background-position: -160px 0px; /* Scratch / happy */
-  }
-  100% {
-    background-position: -96px -96px; /* Sitting cute */
-  }
-}
-
-/* The Placed Center Stage */
-.placed-center-box {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  opacity: 0;
-  transform: scale(0.85);
-  animation: revealCenterLogo 0.8s 1.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes revealCenterLogo {
-  0% {
-    opacity: 0;
-    transform: scale(0.85);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.placed-logo-img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: contain;
-  margin-bottom: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.intro-signature-text {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin-bottom: 6px;
-}
-
-.intro-signature-sub {
-  font-family: monospace;
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  color: #8b949e;
-  text-transform: uppercase;
-}
-
-/* Floating Heart over placed logo */
-.intro-heart-pop {
-  position: absolute;
-  top: -24px;
-  font-size: 20px;
-  opacity: 0;
-  animation: heartPop 0.8s 1.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes heartPop {
-  0% {
-    opacity: 0;
-    transform: translateY(10px) scale(0.4);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-10px) scale(1.3);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-24px) scale(1);
-  }
-}
-
-/* Skip hint */
-.intro-skip-text {
-  position: absolute;
-  bottom: 24px;
-  font-family: monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  color: #6e7681;
-  text-transform: uppercase;
-}
-
-/* ===== CLEAN MONOCHROME PROJECTS SECTION ===== */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -538,8 +341,98 @@ section h2 {
 }
 
 .project-card-m3 {
-  background: #11141a;
-  border: 1px solid #222730;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #ffffff;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.project-card-m3:hover {
+  transform: translateY(-3px);
+  border-color: #ffffff;
+  background: var(--surface);
+  box-shadow: none !important;
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.project-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.project-badge-pill {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: #1c2128;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  white-space: nowrap;
+}
+
+.project-card-desc {
+  font-size: 0.85rem;
+  color: #8b949e;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.project-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.tag-pill {
+  font-size: 0.72rem;
+  font-family: monospace;
+  background: #161b22;
+  border: 1px solid #30363d;
+  color: #8b949e;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.project-card-m3:hover .tag-pill {
+  border-color: #8b949e;
+  color: #ffffff;
+}
+
+.project-card-m3:hover .project-badge-pill {
+  border-color: #8b949e;
+  color: #ffffff;
+}
+
+/* Ensure clean flat borders on hover across all cards */
+.skill-box:hover, .certificate-box:hover, .contact-box:hover, .resume-btn:hover {
+  border-color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+
+/* ===== DUAL PROJECT ACTION BUTTONS (CLEAN MONOCHROME) ===== */
+.project-card-m3 {
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 14px;
   padding: 22px;
   display: flex;
@@ -552,7 +445,7 @@ section h2 {
 .project-card-m3:hover {
   transform: translateY(-3px);
   border-color: #ffffff;
-  background: #151a22;
+  background: var(--surface);
   box-shadow: none !important;
 }
 
@@ -608,6 +501,7 @@ section h2 {
   border-radius: 4px;
 }
 
+/* Action Buttons Row */
 .project-actions-row {
   display: flex;
   flex-wrap: wrap;
@@ -650,41 +544,89 @@ section h2 {
   border-color: #ffffff;
 }
 
-.skill-box:hover, .certificate-box:hover, .contact-box:hover, .resume-btn:hover {
-  border-color: #ffffff !important;
-  box-shadow: none !important;
+
+
+/* Accessibility and responsive fixes */
+:root { color-scheme: dark; --surface: rgba(40, 40, 40, 0.9); }
+body { isolation: isolate; }
+canvas#star-bg { pointer-events: none; }
+.skip-link {
+  position: fixed;
+  z-index: 2000;
+  top: 12px;
+  left: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #000;
+  background: #fff;
+  font-weight: 600;
+  transform: translateY(-180%);
+  transition: transform 0.2s ease;
+}
+.skip-link:focus { transform: translateY(0); }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+section[id], main[id] { scroll-margin-top: 1rem; }
+.quotes-box { width: min(100%, 800px); }
+.projects-grid {
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+.project-card-m3 { min-width: 0; }
+.project-card-title { min-width: 0; overflow-wrap: anywhere; }
+.card-top { align-items: flex-start; }
+.project-badge-pill {
+  max-width: 45%;
+  white-space: normal;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+#rps-game button { min-height: 44px; }
+
+@media (max-width: 600px) {
+  .hero { height: auto; min-height: 40vh; padding: 12px 16px; }
+  .hero-box { max-width: 100%; padding: 20px 24px; }
+  .hero-box h1 { font-size: clamp(1.8rem, 9vw, 2.4rem); }
+  .tagline { font-size: 1.05rem; }
+  .projects-grid { grid-template-columns: minmax(0, 1fr); padding-inline: 0; }
+  .project-card-m3 { padding: 18px; }
+  .project-btn { min-height: 40px; }
+  .contact-box { padding: 13px 18px; }
 }
 
+@media (max-width: 360px) {
+  body { padding-top: 110px; }
+  .logo-btn { top: 12px; left: 12px; width: 72px; height: 72px; }
+  .hero-box { padding: 16px 18px; }
+  #rps-game button { margin: 5px 3px; padding: 10px 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .skip-link { transition: none; }
+  .neko-particle { display: none !important; animation: none !important; }
+}
 </style>
 </head>
-<body>
-
-  <!-- 🐱 PURE BLACK INTRO: WHITE CAT DRAGS LOGO TO CENTER -->
-  <div id="cat-intro-overlay">
-    <div class="intro-stage">
-      
-      <!-- Moving Cat Dragging Logo -->
-      <div class="cat-delivery-group" id="cat-delivery">
-        <div class="intro-cat-sprite" id="intro-cat"></div>
-        <img src="https://raw.githubusercontent.com/auguxt/auguxt.github.io/main/Logo_0.png" alt="Syed Sameer Logo" class="intro-dragged-logo" id="intro-dragged-logo">
-      </div>
-
-      <!-- Placed Center Logo & Title Reveal -->
-      <div class="placed-center-box" id="placed-center">
-        <div class="intro-heart-pop">❤️</div>
-        <img src="https://raw.githubusercontent.com/auguxt/auguxt.github.io/main/Logo_0.png" alt="Syed Sameer Logo" class="placed-logo-img">
-        <div class="intro-signature-text">SYED SAMEER</div>
-        <div class="intro-signature-sub">// auguxt.dev • cybersecurity</div>
-      </div>
-
-      <div class="intro-skip-text">Click anywhere to skip →</div>
-    </div>
-  </div>
-
+<body id="top">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- LOGO -->
-  <button id="logo-btn" class="logo-btn" aria-label="Home" title="Home">
-    <img src="https://raw.githubusercontent.com/auguxt/auguxt.github.io/main/Logo_0.png" alt="Syed Sameer logo" />
+  <button id="logo-btn" class="logo-btn" type="button" aria-label="Back to top" title="Back to top">
+    <img src="https://raw.githubusercontent.com/auguxt/auguxt.github.io/main/Logo_0.png" alt="Syed Sameer logo" width="130" height="130" decoding="async" />
   </button>
 
   <!-- STARFIELD BACKGROUND (decorative) -->
@@ -698,10 +640,11 @@ section h2 {
     <p class="tagline">Aspiring Cybersecurity Expert</p>
   </header>
 
+  <main id="main-content" tabindex="-1">
   <!-- ABOUT -->
-  <section class="about-section">
+  <section class="about-section" aria-labelledby="about-heading">
     <div class="about-container">
-      <h2>About Me</h2>
+      <h2 id="about-heading">About Me</h2>
       <p>
         I'm <strong>Syed Sameer</strong>, an aspiring cybersecurity expert passionate about securing digital systems
         and understanding how they work. I enjoy developing security tools, learning new technologies,
@@ -711,15 +654,15 @@ section h2 {
   </section>
 
   <!-- QUOTES -->
-  <section class="quotes-section">
+  <section class="quotes-section" aria-label="Inspirational quote">
     <div class="quotes-box" id="quotes-box">
-      <p id="quote-text" aria-live="polite">Loading wisdom...</p>
+      <p id="quote-text" aria-live="polite">“Be the change you wish to see in the world.”</p>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section class="skills-section">
-    <h2>Skills</h2>
+  <section class="skills-section" aria-labelledby="skills-heading">
+    <h2 id="skills-heading">Skills</h2>
     <ul class="skills-list">
       <li>Python</li><li>JavaScript</li><li>HTML & CSS</li><li>Flask</li><li>Machine Learning</li>
       <li>Cybersecurity</li><li>Linux</li><li>Git / GitHub</li><li>SQL</li><li>Java</li><li>C</li>
@@ -727,23 +670,268 @@ section h2 {
   </section>
 
   <!-- PROJECTS -->
-  <section class="projects-section">
-    <h2>Projects</h2>
+  
+  
+  <section class="projects-section" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Projects</h2>
     <div class="projects-grid">
-      <a href="https://auguxt.dev/wishcraft/" target="_blank" rel="noopener" class="project-card">🎂 WishCraft — Birthday Wish Link + QR Generator</a>
-      <a href="https://github.com/auguxt/vt-telegram-bot" target="_blank" rel="noopener" class="project-card">🦠 VirusTotal Telegram Bot</a>
-      <a href="https://github.com/auguxt/cryptography-algorithms" target="_blank" rel="noopener" class="project-card">🔐 Cryptography Algorithms</a>
-      <a href="https://github.com/auguxt/password-cracking-and-hashing" target="_blank" rel="noopener" class="project-card">🔑 Password Cracking & Hashing</a>
-      <a href="https://github.com/auguxt/phishing-url-detector" target="_blank" rel="noopener" class="project-card">🎣 Phishing URL Detector</a>
-      <a href="https://github.com/auguxt/Securing-User-Registration-Systems" target="_blank" rel="noopener" class="project-card">🛡️ Securing User Registration Systems</a>
-      <a href="https://github.com/auguxt/Easy-Guide-to-Avoiding-Phishing-Scams" target="_blank" rel="noopener" class="project-card">📘 Easy Guide to Avoid Phishing</a>
-      <a href="https://github.com/auguxt/Simple_Network_Sniffer" target="_blank" rel="noopener" class="project-card">🌐 Simple Network Sniffer</a>
+      <!-- NEMESIS -->
+      <div class="project-card-m3">
+        <div>
+          <div class="card-top">
+            <h3 class="project-card-title">🛡️ NEMESIS Honeypot</h3>
+            <span class="project-badge-pill">Cybersecurity</span>
+          </div>
+          <p class="project-card-desc">A lab-focused, multi-service honeypot that emulates SSH, HTTP, FTP, and Telnet, records activity, scores suspicious behavior, and displays a SOC-style dashboard.</p>
+          <div class="project-tags-row">
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">SQLite</span>
+            <span class="tag-pill">Threat Detection</span>
+          </div>
+        </div>
+        <div class="project-actions-row">
+          <a href="https://github.com/auguxt/NEMESIS" target="_blank" rel="noopener noreferrer" class="project-btn primary">🐙 GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- LinkVault -->
+      <div class="project-card-m3">
+        <div>
+          <div class="card-top">
+            <h3 class="project-card-title">🔗 LinkVault</h3>
+            <span class="project-badge-pill">Web App</span>
+          </div>
+          <p class="project-card-desc">A personal resource-link vault with public browsing and authenticated admin tools for adding, editing, and removing links.</p>
+          <div class="project-tags-row">
+            <span class="tag-pill">HTML</span>
+            <span class="tag-pill">Netlify Functions</span>
+            <span class="tag-pill">Supabase</span>
+          </div>
+        </div>
+        <div class="project-actions-row">
+          <a href="https://github.com/auguxt/linkvault" target="_blank" rel="noopener noreferrer" class="project-btn primary">🐙 GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- StegoVault -->
+      <div class="project-card-m3">
+        <div>
+          <div class="card-top">
+            <h3 class="project-card-title">🕵️ StegoVault</h3>
+            <span class="project-badge-pill">Steganography</span>
+          </div>
+          <p class="project-card-desc">A Flask app for hiding text inside images and revealing it later with least-significant-bit (LSB) steganography.</p>
+          <div class="project-tags-row">
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">Flask</span>
+            <span class="tag-pill">Pillow</span>
+          </div>
+        </div>
+        <div class="project-actions-row">
+          <a href="https://github.com/auguxt/steganography" target="_blank" rel="noopener noreferrer" class="project-btn primary">🐙 GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- Telegram Music Saver Bot -->
+      <div class="project-card-m3">
+        <div>
+          <div class="card-top">
+            <h3 class="project-card-title">🎵 Telegram Music Saver Bot</h3>
+            <span class="project-badge-pill">Telegram Bot</span>
+          </div>
+          <p class="project-card-desc">A personal music-library bot that searches by song title or accepts a YouTube link, then sends the audio to a private Telegram channel.</p>
+          <div class="project-tags-row">
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">Telegram API</span>
+            <span class="tag-pill">FFmpeg</span>
+          </div>
+        </div>
+        <div class="project-actions-row">
+          <a href="https://github.com/auguxt/tg-music-saver-bot" target="_blank" rel="noopener noreferrer" class="project-btn primary">🐙 GitHub ↗</a>
+        </div>
+      </div>
+
+      
+      <!-- WishCraft (Dual Links: Live Website + GitHub) -->
+      <div class="project-card-m3">
+        <div>
+          <div class="card-top">
+            <h3 class="project-card-title">🎂 WishCraft</h3>
+            <span class="project-badge-pill">Web App</span>
+          </div>
+          <p class="project-card-desc">Personalized birthday wish page generator with interactive animations and custom QR code sharing.</p>
+          <div class="project-tags-row">
+            <span class="tag-pill">JavaScript</span>
+            <span class="tag-pill">HTML/CSS</span>
+            <span class="tag-pill">QR Generator</span>
+          </div>
+        </div>
+        <div class="project-actions-row">
+          <a href="https://auguxt.dev/wishcraft/" target="_blank" rel="noopener noreferrer" class="project-btn primary">🌐 Website ↗</a>
+          <a href="https://github.com/auguxt/wishcraft" target="_blank" rel="noopener noreferrer" class="project-btn">🐙 GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- MeowGPT (Dual Links: Live Website + GitHub) -->
+      <div class="project-card-m3">
+        <div>
+          <div class="card-top">
+            <h3 class="project-card-title">🐱 MeowGPT</h3>
+            <span class="project-badge-pill">AI / LLM</span>
+          </div>
+          <p class="project-card-desc">A playful, cat-themed conversational AI interface and prompt engineering experiment.</p>
+          <div class="project-tags-row">
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">LLM</span>
+            <span class="tag-pill">Open Source</span>
+          </div>
+        </div>
+        <div class="project-actions-row">
+          <a href="https://github.com/auguxt/meowgpt" target="_blank" rel="noopener noreferrer" class="project-btn primary">🐙 GitHub ↗</a>
+          <a href="https://auguxt.dev/meowgpt/" target="_blank" rel="noopener noreferrer" class="project-btn">🌐 Website ↗</a>
+        </div>
+      </div>
+
+      <!-- VirusTotal Telegram Bot (GitHub) -->
+      <div class="project-card-m3">
+        <div>
+          <div class="card-top">
+            <h3 class="project-card-title">🦠 VirusTotal Telegram Bot</h3>
+            <span class="project-badge-pill">Security</span>
+          </div>
+          <p class="project-card-desc">Telegram automation bot integrated with VirusTotal API for scanning suspicious files and URLs.</p>
+          <div class="project-tags-row">
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">Telegram API</span>
+            <span class="tag-pill">VirusTotal</span>
+          </div>
+        </div>
+        <div class="project-actions-row">
+          <a href="https://github.com/auguxt/vt-telegram-bot" target="_blank" rel="noopener noreferrer" class="project-btn primary">🐙 GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- Cryptography Toolkit -->
+      <div class="project-card-m3">
+        <div>
+          <div class="card-top">
+            <h3 class="project-card-title">🔐 Cryptography Toolkit</h3>
+            <span class="project-badge-pill">Crypto / Learning</span>
+          </div>
+          <p class="project-card-desc">Educational Python implementations of Caesar, XOR, and RSA ciphers, with tests. Built for learning—not production cryptography.</p>
+          <div class="project-tags-row">
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">Caesar</span>
+            <span class="tag-pill">XOR / RSA</span>
+          </div>
+        </div>
+        <div class="project-actions-row">
+          <a href="https://github.com/auguxt/cryptography-toolkit" target="_blank" rel="noopener noreferrer" class="project-btn primary">🐙 GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- Password Security Demo -->
+      <div class="project-card-m3">
+        <div>
+          <div class="card-top">
+            <h3 class="project-card-title">🔑 Password Security Demo</h3>
+            <span class="project-badge-pill">Security</span>
+          </div>
+          <p class="project-card-desc">Python demos of brute-force and dictionary attacks, plus password hashing that shows why salted bcrypt is safer than fast hashes. For learning only.</p>
+          <div class="project-tags-row">
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">bcrypt</span>
+            <span class="tag-pill">Password Security</span>
+          </div>
+        </div>
+        <div class="project-actions-row">
+          <a href="https://github.com/auguxt/password-security-demo" target="_blank" rel="noopener noreferrer" class="project-btn primary">🐙 GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- Phishing URL Detector (GitHub) -->
+      <div class="project-card-m3">
+        <div>
+          <div class="card-top">
+            <h3 class="project-card-title">🎣 Phishing URL Detector</h3>
+            <span class="project-badge-pill">Security Tool</span>
+          </div>
+          <p class="project-card-desc">A lightweight, rule-based Python checker that scores URLs for suspicious patterns such as spoofed brands, URL shorteners, and risky domains.</p>
+          <div class="project-tags-row">
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">Heuristics</span>
+            <span class="tag-pill">URL Analysis</span>
+          </div>
+        </div>
+        <div class="project-actions-row">
+          <a href="https://github.com/auguxt/phishing-url-detector" target="_blank" rel="noopener noreferrer" class="project-btn primary">🐙 GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- Securing User Registration Systems (GitHub) -->
+      <div class="project-card-m3">
+        <div>
+          <div class="card-top">
+            <h3 class="project-card-title">🛡️ Securing Registration Systems</h3>
+            <span class="project-badge-pill">AppSec</span>
+          </div>
+          <p class="project-card-desc">Paired Python examples compare plain-text password storage with bcrypt hashing and demonstrate secure password verification.</p>
+          <div class="project-tags-row">
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">bcrypt</span>
+            <span class="tag-pill">Authentication</span>
+          </div>
+        </div>
+        <div class="project-actions-row">
+          <a href="https://github.com/auguxt/Securing-User-Registration-Systems" target="_blank" rel="noopener noreferrer" class="project-btn primary">🐙 GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- Easy Guide to Avoid Phishing (GitHub) -->
+      <div class="project-card-m3">
+        <div>
+          <div class="card-top">
+            <h3 class="project-card-title">📘 Guide to Avoid Phishing</h3>
+            <span class="project-badge-pill">Education</span>
+          </div>
+          <p class="project-card-desc">Visual and educational guide on spotting email phishing scams and social engineering vectors.</p>
+          <div class="project-tags-row">
+            <span class="tag-pill">Cyber Defense</span>
+            <span class="tag-pill">Awareness</span>
+          </div>
+        </div>
+        <div class="project-actions-row">
+          <a href="https://github.com/auguxt/Easy-Guide-to-Avoiding-Phishing-Scams" target="_blank" rel="noopener noreferrer" class="project-btn primary">🐙 GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- Simple Network Sniffer (GitHub) -->
+      <div class="project-card-m3">
+        <div>
+          <div class="card-top">
+            <h3 class="project-card-title">🌐 Simple Network Sniffer</h3>
+            <span class="project-badge-pill">Networking</span>
+          </div>
+          <p class="project-card-desc">A Python PCAP reader that summarizes captured packets, including source and destination addresses, protocols, ports, and readable payloads.</p>
+          <div class="project-tags-row">
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">Scapy</span>
+            <span class="tag-pill">PCAP Analysis</span>
+          </div>
+        </div>
+        <div class="project-actions-row">
+          <a href="https://github.com/auguxt/Simple_Network_Sniffer" target="_blank" rel="noopener noreferrer" class="project-btn primary">🐙 GitHub ↗</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
+
+
   <!-- CERTIFICATES -->
-  <section class="certificates-section">
-    <h2>Certificates</h2>
+  <section class="certificates-section" aria-labelledby="certificates-heading">
+    <h2 id="certificates-heading">Certificates</h2>
     <div class="certificates-grid">
       <div class="certificate-box">Cisco NetAcad – Introduction to Cybersecurity</div>
       <div class="certificate-box">IBM – Introduction to Python</div>
@@ -751,318 +939,328 @@ section h2 {
       <div class="certificate-box">Simplilearn – Machine Learning with R</div>
       <div class="certificate-box">TATA Forage – Cybersecurity Analyst Simulation</div>
     </div>
-    <a href="https://drive.google.com/drive/folders/1RB2iLHqzvsfokXb35whjumrMjJa8xS3G?usp=sharing" target="_blank" rel="noopener" class="see-more-btn">📂 See More Certificates</a>
+    <a href="https://drive.google.com/drive/folders/1RB2iLHqzvsfokXb35whjumrMjJa8xS3G?usp=sharing" target="_blank" rel="noopener noreferrer" class="see-more-btn">📂 See More Certificates</a>
   </section>
 
   <!-- ROCK PAPER SCISSORS GAME -->
   <section class="game-section" aria-labelledby="rps-heading">
     <h2 id="rps-heading">🎮 Rock Paper Scissors</h2>
     <div id="rps-game" role="group" aria-label="Rock Paper Scissors game">
-      <button class="rps-btn" data-choice="rock" aria-label="Rock">🪨 Rock</button>
-      <button class="rps-btn" data-choice="paper" aria-label="Paper">📄 Paper</button>
-      <button class="rps-btn" data-choice="scissors" aria-label="Scissors">✂️ Scissors</button>
+      <button type="button" class="rps-btn" data-choice="rock" aria-label="Rock">🪨 Rock</button>
+      <button type="button" class="rps-btn" data-choice="paper" aria-label="Paper">📄 Paper</button>
+      <button type="button" class="rps-btn" data-choice="scissors" aria-label="Scissors">✂️ Scissors</button>
       <p id="rps-result" aria-live="polite"></p>
-      <p id="rps-score">Your Score: 0 | Bot Score: 0</p>
-      <button id="rps-reset" class="see-more-btn" style="margin-top:10px;">Reset Score</button>
+      <p id="rps-score" aria-live="polite">Your Score: 0 | Bot Score: 0</p>
+      <button type="button" id="rps-reset" class="see-more-btn" style="margin-top:10px;">Reset Score</button>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="contact-section">
+  
+  <section class="contact-section" aria-labelledby="contact-heading">
+    <h2 id="contact-heading" class="visually-hidden">Contact</h2>
     <div class="contact-boxes">
       <a href="mailto:syedsameer.xtech@gmail.com" class="contact-box">📧 Email</a>
-      <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank" rel="noopener" class="contact-box">🔗 LinkedIn</a>
-      <a href="https://github.com/auguxt" target="_blank" rel="noopener" class="contact-box">🐙 GitHub</a>
+      <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank" rel="noopener noreferrer" class="contact-box">🔗 LinkedIn</a>
+      <a href="https://github.com/auguxt" target="_blank" rel="noopener noreferrer" class="contact-box">🐙 GitHub</a>
+      <a href="https://monkeytype.com/profile/auguxt" target="_blank" rel="noopener noreferrer" class="contact-box">⌨️ Monkeytype</a>
     </div>
-    <a href="https://github.com/auguxt/auguxt.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank" rel="noopener" download class="resume-btn">📄 Download Resume</a>
+    <a href="https://github.com/auguxt/auguxt.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank" rel="noopener noreferrer" download class="resume-btn">📄 Download Resume</a>
   </section>
+  </main>
+
 
   <script>
-/* === STARFIELD + QUOTES + RPS (improved, with robust RPS event delegation) ===
-   Changes from previous version:
-   - Event delegation for RPS (handles dynamic buttons/timing)
-   - Extra console logs for debugging
-   - Defensive checks
-   - Everything else unchanged (canvas scaling, quotes, persistence)
-*/
+(() => {
+  'use strict';
 
-(function () {
-  /* ---------- Helpers ---------- */
-  const el = (selector, ctx = document) => ctx.querySelector(selector);
-  const els = (selector, ctx = document) => Array.from(ctx.querySelectorAll(selector));
-  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-  const shuffleArray = arr => {
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  };
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+  const motionPreference = window.matchMedia
+    ? window.matchMedia('(prefers-reduced-motion: reduce)')
+    : { matches: false };
+  let prefersReducedMotion = motionPreference.matches;
 
-  /* ---------- Canvas / Starfield ---------- */
-  const canvas = el('#star-bg');
-  let ctx = null;
-  let dpr = Math.max(1, window.devicePixelRatio || 1);
+  /* ---------- Starfield ---------- */
+  const canvas = $('#star-bg');
+  const context = canvas ? canvas.getContext('2d') : null;
+  let pixelRatio = 1;
   let stars = [];
-  let animationId = null;
-  let pausedAnimation = false;
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let starFrameId = null;
+  let starfieldPaused = false;
 
-  function resizeCanvas() {
-    if (!canvas) return;
-    dpr = Math.max(1, window.devicePixelRatio || 1);
-    const cssWidth = window.innerWidth;
-    const cssHeight = window.innerHeight;
-    canvas.style.width = `${cssWidth}px`;
-    canvas.style.height = `${cssHeight}px`;
-    canvas.width = Math.floor(cssWidth * dpr);
-    canvas.height = Math.floor(cssHeight * dpr);
-
-    // Make drawing use CSS pixels by scaling context
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    initStars();
+  function shouldAnimateStars() {
+    return !!context && !prefersReducedMotion && !document.hidden && !starfieldPaused;
   }
 
-  function initStars(count = 150) {
+  function createStars() {
     if (!canvas) return;
-    const effectiveCount = prefersReducedMotion ? Math.min(40, count) : count;
-    const w = canvas.width / dpr;
-    const h = canvas.height / dpr;
-    stars = Array.from({ length: effectiveCount }, () => ({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      r: Math.random() * 1.5 + 0.2,
-      d: Math.random() * 1.5 + 0.2, // speed
+    const width = canvas.width / pixelRatio;
+    const height = canvas.height / pixelRatio;
+    const count = prefersReducedMotion ? 40 : 150;
+    stars = Array.from({ length: count }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      radius: Math.random() * 1.5 + 0.2,
+      speed: Math.random() * 1.1 + 0.2
     }));
   }
 
-  function animateStars() {
-    if (!ctx || !canvas) return;
-    const w = canvas.width / dpr;
-    const h = canvas.height / dpr;
+  function drawStars(advance) {
+    if (!canvas || !context) return;
+    const width = canvas.width / pixelRatio;
+    const height = canvas.height / pixelRatio;
+    context.clearRect(0, 0, width, height);
+    context.fillStyle = 'rgba(255, 255, 255, 0.9)';
 
-    ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = "white";
-
-    if (!pausedAnimation) {
-      for (let s of stars) {
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fill();
-        s.y += s.d;
-        if (s.y > h) s.y = 0;
-      }
-    } else {
-      for (let s of stars) {
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fill();
+    for (const star of stars) {
+      context.beginPath();
+      context.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      context.fill();
+      if (advance) {
+        star.y += star.speed;
+        if (star.y > height) star.y = 0;
       }
     }
-
-    animationId = requestAnimationFrame(animateStars);
   }
 
-  if (canvas) {
-    ctx = canvas.getContext('2d');
+  function animateStars() {
+    starFrameId = null;
+    if (!context) return;
+    const animate = shouldAnimateStars();
+    drawStars(animate);
+    if (animate) starFrameId = window.requestAnimationFrame(animateStars);
+  }
+
+  function syncStarfield() {
+    if (!context) return;
+    if (shouldAnimateStars()) {
+      if (starFrameId === null) starFrameId = window.requestAnimationFrame(animateStars);
+      return;
+    }
+    if (starFrameId !== null) {
+      window.cancelAnimationFrame(starFrameId);
+      starFrameId = null;
+    }
+    drawStars(false);
+  }
+
+  function resizeCanvas() {
+    if (!canvas || !context) return;
+    pixelRatio = Math.min(2, Math.max(1, window.devicePixelRatio || 1));
+    const width = Math.max(1, window.innerWidth);
+    const height = Math.max(1, window.innerHeight);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    canvas.width = Math.round(width * pixelRatio);
+    canvas.height = Math.round(height * pixelRatio);
+    context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    createStars();
+    syncStarfield();
+  }
+
+  if (canvas && context) {
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    animateStars();
+    window.addEventListener('resize', resizeCanvas, { passive: true });
   }
 
-  /* ---------- Quotes ---------- */
+  /* ---------- Rotating quotes ---------- */
   const quotes = [
     "Nothing kills you faster than your own mind. Don't stress over things out of control.",
     "Having someone you can call crying, and end the call laughing is a true blessing!",
-    `Your "normal" day is someone's dream, so be thankful every day.`,
+    "Your \"normal\" day is someone's dream, so be thankful every day.",
     "What you see daily shapes you. Your feed trains your brain each day.",
     "You'll be alone in the most difficult times of your life. These times make you wise, mature, and fearless.",
-    "When you have a heart of gold and pure intentions, you don't lose anyone—they lose you.",
+    "When you have a heart of gold and pure intentions, you don't lose anyone — they lose you.",
     "It's on you to get you where you want to be.",
-    "One day, you'll realize that your dream died because you chose comfort over effort. Don't let that regret haunt you forever.",
-    "Some people talk to you in their free time, and some people free their time to talk to you. Make sure you know the difference.",
-    "Just because I give you advice doesn't mean I'm smarter than you. It means I've done more stupid things than you.",
-    "The most dangerous anger comes from someone with a good heart. They hold it in, stay calm, and forgive—until one day they can't anymore. Don't push a good person too far.",
-    "If you have the power to eat alone in a restaurant or sit alone in a cinema, then you can do anything in your life.",
+    "One day, you'll realize that your dream died because you chose comfort over effort.",
+    "Some people talk to you in their free time, and some people free their time to talk to you.",
+    "The most dangerous anger comes from someone with a good heart.",
     "What they hate in you is missing in them. Keep shining.",
-    "Cry as hard as you want, but when you stop crying, make sure you never cry for the same reason again.",
-    "A pen can make mistakes but a pencil can't because it has a good friend: an eraser. A true friend helps fix your mistakes.",
-    "Dress well, even when you are alone. Treat yourself with the respect you deserve.",
-    "Drinking a lot of water every day helps you avoid drama, because you're too busy peeing. Stay hydrated.",
-    "Never become so thirsty that you drink from every cup presented to you. That's how you get poisoned.",
     "No flower grows without rain, and no person grows without pain.",
-    "The best way to keep a prisoner from escaping is to make sure he never knows he is in prison.",
     "Slow success builds character. Fast success builds ego.",
-    "The faker you are, the bigger your circle will be. The realer you are, the smaller your circle becomes.",
-    "Your mind is a magnet. Think blessings, attract blessings. Think problems, attract problems. Choose your thoughts wisely.",
+    "Your mind is a magnet. Think blessings, attract blessings.",
     "Be the change you wish to see in the world.",
-    "F-E-A-R has two meanings: 'Forgot Everything And Run.' 'Face Everything And Rise.'"
+    "F-E-A-R: Face Everything And Rise."
   ];
-
-  const quoteEl = el('#quote-text');
-  const quotesBox = el('#quotes-box');
-
-  const FADE_DURATION = 600; // ms
-  if (quoteEl) {
-    quoteEl.style.transition = `opacity ${FADE_DURATION}ms ease-in-out`;
-    quoteEl.style.opacity = 1;
-  }
-
+  const quoteEl = $('#quote-text');
+  const quotesBox = $('#quotes-box');
+  const QUOTE_BASE = 16000;
+  const QUOTE_PER_CHAR = 65;
   let quoteQueue = [];
+  let quoteTimerId = null;
+  let quoteFadeId = null;
+  let quoteHovered = false;
+  let quoteFocused = false;
+  let currentQuote = '';
+
   function refillQuoteQueue() {
-    quoteQueue = shuffleArray(quotes.map((_, i) => i));
-  }
-  refillQuoteQueue();
-
-  const QUOTE_BASE = 8000; // base ms
-  const PER_CHAR = 65; // ms per char
-  const QUOTE_MIN = 5000;
-  const QUOTE_MAX = 20000;
-
-  let quoteTimeoutId = null;
-  let pausedQuotes = false;
-
-  function computeIntervalFor(text) {
-    const t = QUOTE_BASE + (text.length * PER_CHAR);
-    return clamp(t, QUOTE_MIN, QUOTE_MAX);
+    quoteQueue = quotes.map((_, index) => index);
+    for (let i = quoteQueue.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [quoteQueue[i], quoteQueue[j]] = [quoteQueue[j], quoteQueue[i]];
+    }
   }
 
-  function getNextQuoteText() {
+  function nextQuote() {
     if (!quoteQueue.length) refillQuoteQueue();
-    const idx = quoteQueue.pop();
-    return quotes[idx];
+    return quotes[quoteQueue.pop()];
+  }
+
+  function canRotateQuotes() {
+    return !!quoteEl && !prefersReducedMotion && !document.hidden && !quoteHovered && !quoteFocused;
+  }
+
+  function clearQuoteTimer() {
+    if (quoteTimerId !== null) {
+      window.clearTimeout(quoteTimerId);
+      quoteTimerId = null;
+    }
+  }
+
+  function quoteInterval(text) {
+    return clamp(QUOTE_BASE + text.length * QUOTE_PER_CHAR, 12000, 35000);
   }
 
   function showQuote(text) {
     if (!quoteEl) return;
-    quoteEl.style.opacity = 0;
-    setTimeout(() => {
+    currentQuote = text;
+    if (quoteFadeId !== null) window.clearTimeout(quoteFadeId);
+    if (prefersReducedMotion) {
       quoteEl.textContent = text;
-      quoteEl.style.opacity = 1;
-    }, FADE_DURATION);
+      quoteEl.style.opacity = '1';
+      quoteFadeId = null;
+      return;
+    }
+    quoteEl.style.opacity = '0';
+    quoteFadeId = window.setTimeout(() => {
+      quoteEl.textContent = text;
+      quoteEl.style.opacity = '1';
+      quoteFadeId = null;
+    }, 180);
   }
 
-  function scheduleNextQuote() {
-    if (!quoteEl || pausedQuotes) return;
-    if (quoteTimeoutId) {
-      clearTimeout(quoteTimeoutId);
-      quoteTimeoutId = null;
-    }
-    const text = getNextQuoteText();
-    showQuote(text);
-    const interval = computeIntervalFor(text);
-    quoteTimeoutId = setTimeout(() => {
-      scheduleNextQuote();
-    }, interval);
+  function scheduleQuote(delay) {
+    clearQuoteTimer();
+    if (!canRotateQuotes()) return;
+    quoteTimerId = window.setTimeout(() => {
+      quoteTimerId = null;
+      const text = nextQuote();
+      showQuote(text);
+      scheduleQuote(quoteInterval(text));
+    }, delay);
   }
 
-  function pauseEverything() {
-    pausedQuotes = true;
-    pausedAnimation = true;
-    if (quoteTimeoutId) {
-      clearTimeout(quoteTimeoutId);
-      quoteTimeoutId = null;
-    }
+  function updateInteractionPause() {
+    if (quoteHovered || quoteFocused) clearQuoteTimer();
+    else if (currentQuote) scheduleQuote(quoteInterval(currentQuote));
+    syncStarfield();
   }
-  function resumeEverything() {
-    if (!pausedQuotes && !pausedAnimation) return;
-    pausedQuotes = false;
-    pausedAnimation = false;
-    scheduleNextQuote();
+
+  if (quoteEl) {
+    quoteEl.style.transition = 'opacity 180ms ease-in-out';
+    if (prefersReducedMotion) {
+      showQuote(quotes[Math.floor(Math.random() * quotes.length)]);
+    } else {
+      const text = nextQuote();
+      showQuote(text);
+      scheduleQuote(quoteInterval(text));
+    }
   }
 
   if (quotesBox) {
-    quotesBox.addEventListener('mouseenter', pauseEverything);
-    quotesBox.addEventListener('mouseleave', resumeEverything);
-    quotesBox.addEventListener('focusin', pauseEverything);
-    quotesBox.addEventListener('focusout', resumeEverything);
+    quotesBox.addEventListener('mouseenter', () => {
+      quoteHovered = true;
+      updateInteractionPause();
+    });
+    quotesBox.addEventListener('mouseleave', () => {
+      quoteHovered = false;
+      updateInteractionPause();
+    });
+    quotesBox.addEventListener('focusin', () => {
+      quoteFocused = true;
+      updateInteractionPause();
+    });
+    quotesBox.addEventListener('focusout', () => {
+      quoteFocused = false;
+      updateInteractionPause();
+    });
   }
 
-  if (!prefersReducedMotion) {
-    scheduleNextQuote();
-  } else {
-    if (quoteEl) showQuote(quotes[Math.floor(Math.random() * quotes.length)]);
-  }
-
-  /* ---------- Rock-Paper-Scissors (RPS) with delegation ---------- */
-  const rpsContainer = el('#rps-game');
-  const rpsResultEl = el('#rps-result');
-  const rpsScoreEl = el('#rps-score');
-  const rpsReset = el('#rps-reset');
+  /* ---------- Rock-paper-scissors ---------- */
+  const rpsContainer = $('#rps-game');
+  const rpsResultEl = $('#rps-result');
+  const rpsScoreEl = $('#rps-score');
+  const rpsReset = $('#rps-reset');
   const STORAGE_KEY = 'rpsScores_v1';
-
+  const choices = ['rock', 'paper', 'scissors'];
   let playerScore = 0;
   let botScore = 0;
 
-  function loadScores() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        playerScore = parsed.player || 0;
-        botScore = parsed.bot || 0;
-      }
-    } catch (e) {
-      playerScore = 0;
-      botScore = 0;
-      console.warn('Failed to load RPS scores from localStorage:', e);
-    }
-    updateScoreUI();
+  function sanitizeScore(value) {
+    const score = Number(value);
+    return Number.isSafeInteger(score) && score >= 0 ? score : 0;
   }
-  function saveScores() {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ player: playerScore, bot: botScore }));
-    } catch (e) {
-      console.warn('Failed to save RPS scores to localStorage:', e);
-    }
-  }
+
   function updateScoreUI() {
     if (rpsScoreEl) rpsScoreEl.textContent = `Your Score: ${playerScore} | Bot Score: ${botScore}`;
   }
 
+  function loadScores() {
+    try {
+      const raw = window.localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === 'object') {
+          playerScore = sanitizeScore(parsed.player);
+          botScore = sanitizeScore(parsed.bot);
+        }
+      }
+    } catch (error) {
+      playerScore = 0;
+      botScore = 0;
+    }
+    updateScoreUI();
+  }
+
+  function saveScores() {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ player: playerScore, bot: botScore }));
+    } catch (error) {
+      // The game still works when storage is unavailable (e.g. private browsing).
+    }
+  }
+
   function playRPSChoice(playerChoice) {
-    const choices = ["rock", "paper", "scissors"];
+    if (!choices.includes(playerChoice)) return;
     const botChoice = choices[Math.floor(Math.random() * choices.length)];
     if (!rpsResultEl || !rpsScoreEl) return;
 
     if (playerChoice === botChoice) {
       rpsResultEl.textContent = "🤝 It's a tie!";
     } else if (
-      (playerChoice === "rock" && botChoice === "scissors") ||
-      (playerChoice === "paper" && botChoice === "rock") ||
-      (playerChoice === "scissors" && botChoice === "paper")
+      (playerChoice === 'rock' && botChoice === 'scissors') ||
+      (playerChoice === 'paper' && botChoice === 'rock') ||
+      (playerChoice === 'scissors' && botChoice === 'paper')
     ) {
       rpsResultEl.textContent = `✅ You win! ${playerChoice} beats ${botChoice}.`;
-      playerScore++;
+      playerScore = Math.min(Number.MAX_SAFE_INTEGER, playerScore + 1);
     } else {
       rpsResultEl.textContent = `❌ You lose! ${botChoice} beats ${playerChoice}.`;
-      botScore++;
+      botScore = Math.min(Number.MAX_SAFE_INTEGER, botScore + 1);
     }
     updateScoreUI();
     saveScores();
-    console.debug('RPS played:', { playerChoice, botChoice, playerScore, botScore });
   }
 
-  // Delegated click handler — works even if buttons are added later
   if (rpsContainer) {
-    rpsContainer.addEventListener('click', (ev) => {
-      const btn = ev.target.closest && ev.target.closest('.rps-btn');
-      if (!btn) return;
-      const choice = btn.getAttribute('data-choice');
-      if (!choice) return;
-      playRPSChoice(choice);
+    rpsContainer.addEventListener('click', (event) => {
+      const button = event.target && event.target.closest
+        ? event.target.closest('.rps-btn')
+        : null;
+      if (!button || !rpsContainer.contains(button)) return;
+      playRPSChoice(button.getAttribute('data-choice'));
     });
-    console.debug('RPS delegation attached to #rps-game');
-  } else {
-    // fallback: attach to document to capture clicks anywhere (narrower than nothing)
-    document.addEventListener('click', (ev) => {
-      const btn = ev.target.closest && ev.target.closest('.rps-btn');
-      if (!btn) return;
-      const choice = btn.getAttribute('data-choice');
-      if (!choice) return;
-      playRPSChoice(choice);
-    });
-    console.debug('RPS fallback delegation attached to document');
   }
 
   if (rpsReset) {
@@ -1071,73 +1269,352 @@ section h2 {
       botScore = 0;
       saveScores();
       updateScoreUI();
-      if (rpsResultEl) rpsResultEl.textContent = "Scores reset.";
+      if (rpsResultEl) rpsResultEl.textContent = 'Scores reset.';
     });
   }
 
   loadScores();
-
-  // Keep global for compatibility with inline calls (if any)
   window.playRPS = playRPSChoice;
 
-  /* ---------- Logo button click (no inline onclick) ---------- */
-  const logoBtn = el('#logo-btn');
-  if (logoBtn) {
-    logoBtn.addEventListener('click', () => {
-      window.location.href = 'index.html';
+  /* ---------- Logo and lifecycle ---------- */
+  const logoButton = $('#logo-btn');
+  if (logoButton) {
+    logoButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     });
   }
 
-  /* ---------- Clean up on unload ---------- */
+  function onVisibilityChange() {
+    syncStarfield();
+    if (document.hidden) clearQuoteTimer();
+    else if (currentQuote) scheduleQuote(quoteInterval(currentQuote));
+  }
+
+  document.addEventListener('visibilitychange', onVisibilityChange);
+  window.addEventListener('resize', syncStarfield, { passive: true });
   window.addEventListener('pagehide', () => {
-    if (animationId) cancelAnimationFrame(animationId);
-    if (quoteTimeoutId) clearTimeout(quoteTimeoutId);
+    clearQuoteTimer();
+    if (quoteFadeId !== null) {
+      window.clearTimeout(quoteFadeId);
+      quoteFadeId = null;
+    }
+    if (starFrameId !== null) {
+      window.cancelAnimationFrame(starFrameId);
+      starFrameId = null;
+    }
+  });
+  window.addEventListener('pageshow', () => {
+    syncStarfield();
+    if (currentQuote) scheduleQuote(quoteInterval(currentQuote));
   });
 
-  // Debug summary
-  console.debug('script.js initialized', {
-    hasCanvas: !!canvas,
-    hasQuotesBox: !!quotesBox,
-    hasRpsContainer: !!rpsContainer
-  });
-
+  if (motionPreference.addEventListener) {
+    motionPreference.addEventListener('change', (event) => {
+      prefersReducedMotion = event.matches;
+      if (prefersReducedMotion) {
+        clearQuoteTimer();
+        if (quoteFadeId !== null) {
+          window.clearTimeout(quoteFadeId);
+          quoteFadeId = null;
+        }
+        if (quoteEl && currentQuote) {
+          quoteEl.textContent = currentQuote;
+          quoteEl.style.opacity = '1';
+        }
+      } else if (currentQuote) {
+        scheduleQuote(quoteInterval(currentQuote));
+      }
+      if (canvas && context) {
+        createStars();
+        syncStarfield();
+      }
+    });
+  }
 })();
-  </script>
+</script>
 
-  <!-- Cat Drag Intro Controller Script -->
-  <script>
-  (function () {
-    const overlay = document.getElementById('cat-intro-overlay');
-    const introCat = document.getElementById('intro-cat');
-    const draggedLogo = document.getElementById('intro-dragged-logo');
-    const delivery = document.getElementById('cat-delivery');
-    const centerBox = document.getElementById('placed-center');
-    if (!overlay) return;
-
-    // After walking to center (1.7s), cat sits and reveals logo
-    setTimeout(() => {
-      if (introCat) introCat.className = 'intro-cat-sprite cat-placed';
-      if (draggedLogo) draggedLogo.style.opacity = '0';
-    }, 1750);
-
-    function dismissIntro() {
-      if (overlay.classList.contains('intro-hidden')) return;
-      overlay.classList.add('intro-hidden');
-      setTimeout(() => {
-        if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-      }, 800);
+  <!-- Oneko White Cat Companion (Clean: Cursor Follow, Petting Hearts, Switched Scroll, Idle Naps) -->
+  <style>
+    .neko-particle {
+      position: fixed;
+      pointer-events: none;
+      font-size: 16px;
+      z-index: 2147483647;
+      animation: floatUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      user-select: none;
     }
 
-    // Auto-dismiss after 3.2s of delightful animation
-    const introTimer = setTimeout(dismissIntro, 3200);
+    #oneko-cursor-cat:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 2px;
+    }
 
-    // Instant skip on click/tap
-    overlay.addEventListener('click', () => {
-      clearTimeout(introTimer);
-      dismissIntro();
-    });
-  })();
-  </script>
+    @keyframes floatUp {
+      0% { opacity: 1; transform: translate(0, 0) scale(0.6); }
+      50% { opacity: 0.9; transform: translate(calc(var(--rand-x, 0px) * 0.5), -24px) scale(1.2); }
+      100% { opacity: 0; transform: translate(var(--rand-x, 0px), -48px) scale(0.8); }
+    }
+  </style>
+
+  <script>
+(() => {
+  'use strict';
+
+  const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) return;
+  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+  const catSprite = "data:image/gif;base64,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";
+  const cat = document.createElement('button');
+  cat.type = 'button';
+  cat.id = 'oneko-cursor-cat';
+  cat.setAttribute('aria-label', 'Pet the animated cat');
+  cat.title = 'Click to pet me!';
+  Object.assign(cat.style, {
+    width: '32px',
+    height: '32px',
+    padding: '0',
+    border: '0',
+    appearance: 'none',
+    backgroundColor: 'transparent',
+    backgroundImage: `url('${catSprite}')`,
+    backgroundRepeat: 'no-repeat',
+    position: 'fixed',
+    display: 'block',
+    imageRendering: 'pixelated',
+    zIndex: '2147483647',
+    cursor: 'pointer',
+    pointerEvents: 'auto',
+    transition: 'transform 0.15s ease-out',
+    transformOrigin: 'center',
+    lineHeight: '1',
+    userSelect: 'none'
+  });
+  cat.style.backgroundPosition = '-96px -96px';
+
+  let catX = Math.floor(window.innerWidth / 2);
+  let catY = Math.floor(window.innerHeight / 2);
+  let pointerX = catX;
+  let pointerY = catY;
+  let pointerMoved = false;
+  let frameCount = 0;
+  let idleTime = 0;
+  let idleAnimation = null;
+  let idleAnimationFrame = 0;
+  let isPetting = false;
+  let isScrolling = false;
+  let scrollTimeout = null;
+  let scrollDirection = 'scratchWallS';
+  let animationFrameId = null;
+  let lastFrameTime = 0;
+  const speed = 12;
+
+  const spriteSets = {
+    idle: [[-3, -3]],
+    alert: [[-7, -3]],
+    scratchSelf: [[-5, 0], [-6, 0], [-7, 0]],
+    scratchWallN: [[0, 0], [0, -1]],
+    scratchWallS: [[-7, -1], [-6, -2]],
+    scratchWallE: [[-2, -2], [-2, -3]],
+    scratchWallW: [[-4, 0], [-4, -1]],
+    tired: [[-3, -2]],
+    sleeping: [[-2, 0], [-2, -1]],
+    N: [[-1, -2], [-1, -3]],
+    NE: [[0, -2], [0, -3]],
+    E: [[-3, 0], [-3, -1]],
+    SE: [[-5, -1], [-5, -2]],
+    S: [[-6, -3], [-7, -2]],
+    SW: [[-5, -3], [-6, -1]],
+    W: [[-4, -2], [-4, -3]],
+    NW: [[-1, 0], [-1, -1]]
+  };
+
+  function setSprite(name, frame) {
+    const frames = spriteSets[name];
+    if (!frames) return;
+    const sprite = frames[frame % frames.length];
+    cat.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
+  }
+
+  function resetIdleAnimation() {
+    idleAnimation = null;
+    idleAnimationFrame = 0;
+  }
+
+  function spawnPetParticle(char = '❤️') {
+    const particle = document.createElement('span');
+    particle.className = 'neko-particle';
+    particle.setAttribute('aria-hidden', 'true');
+    particle.textContent = char;
+    particle.style.setProperty('--rand-x', `${(Math.random() - 0.5) * 36}px`);
+    particle.style.left = `${catX - 8}px`;
+    particle.style.top = `${catY - 24}px`;
+    document.body.appendChild(particle);
+    window.setTimeout(() => particle.remove(), 1200);
+  }
+
+  cat.addEventListener('click', (event) => {
+    event.stopPropagation();
+    isPetting = true;
+    idleAnimation = 'scratchSelf';
+    idleAnimationFrame = 0;
+    const hearts = ['❤️', '💖', '✨', '💕', '🌸'];
+    spawnPetParticle(hearts[Math.floor(Math.random() * hearts.length)]);
+    cat.style.transform = 'scale(1.3) translateY(-4px)';
+    window.setTimeout(() => { cat.style.transform = ''; }, 300);
+    window.setTimeout(() => { isPetting = false; }, 1000);
+  });
+
+  let lastScrollY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    const delta = currentScrollY - lastScrollY;
+    lastScrollY = currentScrollY;
+    isScrolling = true;
+    if (delta > 0) {
+      scrollDirection = 'scratchWallN';
+      catY = Math.max(20, catY - 6);
+    } else if (delta < 0) {
+      scrollDirection = 'scratchWallS';
+      catY = Math.min(window.innerHeight - 40, catY + 6);
+    }
+    if (scrollTimeout !== null) window.clearTimeout(scrollTimeout);
+    scrollTimeout = window.setTimeout(() => { isScrolling = false; }, 250);
+  }, { passive: true });
+
+  function idle() {
+    idleTime += 1;
+    if (idleTime > 8 && Math.floor(Math.random() * 150) === 0 && idleAnimation === null) {
+      const animations = ['sleeping', 'scratchSelf'];
+      if (catX < 40) animations.push('scratchWallW');
+      if (catY < 40) animations.push('scratchWallN');
+      if (catX > window.innerWidth - 40) animations.push('scratchWallE');
+      if (catY > window.innerHeight - 40) animations.push('scratchWallS');
+      idleAnimation = animations[Math.floor(Math.random() * animations.length)];
+    }
+
+    switch (idleAnimation) {
+      case 'sleeping':
+        if (idleAnimationFrame < 8) setSprite('tired', 0);
+        else setSprite('sleeping', Math.floor(idleAnimationFrame / 4));
+        if (idleAnimationFrame > 260) resetIdleAnimation();
+        break;
+      case 'scratchSelf':
+        setSprite('scratchSelf', Math.floor(idleAnimationFrame / 4));
+        if (idleAnimationFrame > 36 && !isPetting) resetIdleAnimation();
+        break;
+      case 'scratchWallN':
+      case 'scratchWallS':
+      case 'scratchWallE':
+      case 'scratchWallW':
+        setSprite(idleAnimation, Math.floor(idleAnimationFrame / 4));
+        if (idleAnimationFrame > 36) resetIdleAnimation();
+        break;
+      default:
+        setSprite('idle', 0);
+        return;
+    }
+    idleAnimationFrame += 1;
+  }
+
+  function updateFrame() {
+    frameCount += 1;
+    if (isPetting) {
+      setSprite('scratchSelf', Math.floor(frameCount / 3));
+      return;
+    }
+    if (isScrolling) {
+      setSprite(scrollDirection, Math.floor(frameCount / 3));
+      positionCat();
+      return;
+    }
+
+    const diffX = catX - pointerX;
+    const diffY = catY - pointerY;
+    const distance = Math.hypot(diffX, diffY);
+    if (!pointerMoved || distance < 45) {
+      idle();
+      positionCat();
+      return;
+    }
+
+    idleAnimation = null;
+    idleAnimationFrame = 0;
+    if (idleTime > 1) {
+      setSprite('alert', 0);
+      idleTime = Math.max(1, Math.min(idleTime, 6) - 1);
+      positionCat();
+      return;
+    }
+
+    let direction = '';
+    if (diffY / distance > 0.45) direction += 'N';
+    else if (diffY / distance < -0.45) direction += 'S';
+    if (diffX / distance > 0.45) direction += 'W';
+    else if (diffX / distance < -0.45) direction += 'E';
+    if (!direction) direction = 'S';
+    setSprite(direction, Math.floor(frameCount / 4));
+
+    catX -= (diffX / distance) * speed;
+    catY -= (diffY / distance) * speed;
+    catX = clamp(catX, 16, Math.max(16, window.innerWidth - 16));
+    catY = clamp(catY, 16, Math.max(16, window.innerHeight - 16));
+    positionCat();
+  }
+
+  function positionCat() {
+    cat.style.left = `${catX - 16}px`;
+    cat.style.top = `${catY - 16}px`;
+  }
+
+  function animate(time) {
+    animationFrameId = null;
+    if (document.hidden) return;
+    if (time - lastFrameTime >= 60) {
+      lastFrameTime = time;
+      updateFrame();
+    }
+    animationFrameId = window.requestAnimationFrame(animate);
+  }
+
+  function startAnimation() {
+    if (animationFrameId === null && !document.hidden) {
+      animationFrameId = window.requestAnimationFrame(animate);
+    }
+  }
+
+  function stopAnimation() {
+    if (animationFrameId !== null) window.cancelAnimationFrame(animationFrameId);
+    animationFrameId = null;
+  }
+
+  function init() {
+    positionCat();
+    document.body.appendChild(cat);
+    window.addEventListener('pointermove', (event) => {
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      pointerMoved = true;
+    }, { passive: true });
+    window.addEventListener('resize', () => {
+      catX = clamp(catX, 16, Math.max(16, window.innerWidth - 16));
+      catY = clamp(catY, 16, Math.max(16, window.innerHeight - 16));
+      positionCat();
+    }, { passive: true });
+    startAnimation();
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAnimation();
+    else startAnimation();
+  });
+  window.addEventListener('pagehide', stopAnimation);
+  window.addEventListener('pageshow', startAnimation);
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
+  else init();
+})();
+</script>
 
 </body>
 </html>
