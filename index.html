@@ -330,185 +330,201 @@ section h2 {
 }
   
 /* ==========================================================================
-   🌌 CINEMATIC "QUANTUM CYBER AWAKENING" SIGNATURE ENTRANCE
+   🐱 PURE BLACK INTRO: WHITE CAT DRAGS LOGO TO CENTER
    ========================================================================== */
-#master-splash {
+#cat-intro-overlay {
   position: fixed;
   inset: 0;
-  background: #000000;
+  background-color: #000000;
   z-index: 99999999;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   user-select: none;
   cursor: pointer;
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#master-splash.splash-dismissed {
+#cat-intro-overlay.intro-hidden {
   opacity: 0;
-  transform: scale(1.15);
-  filter: blur(12px);
+  transform: scale(1.05);
   pointer-events: none;
 }
 
-/* Background Particle Canvas for Intro */
-#splash-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+/* The Moving Stage */
+.intro-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Central Hologram Chamber */
-.holo-chamber {
-  position: relative;
-  z-index: 10;
+/* The Cat & Logo Delivery Group */
+.cat-delivery-group {
+  position: absolute;
+  top: 50%;
+  left: -180px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: walkToCenter 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes walkToCenter {
+  0% {
+    left: -180px;
+  }
+  100% {
+    left: calc(50% - 70px);
+  }
+}
+
+/* The Animated Walking White Cat */
+.intro-cat-sprite {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+  background-image: url('data:image/gif;base64,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');
+  background-position: -96px 0px; /* Running East */
+  animation: catLegsWalking 0.25s infinite steps(2);
+  transform: scale(1.6);
+  transform-origin: center;
+}
+
+@keyframes catLegsWalking {
+  0% {
+    background-position: -96px 0px;
+  }
+  100% {
+    background-position: -96px -32px;
+  }
+}
+
+/* The Logo Being Dragged */
+.intro-dragged-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.25));
+  animation: logoTiltDrag 0.3s infinite ease-in-out alternate;
+  transition: transform 0.4s ease;
+}
+
+@keyframes logoTiltDrag {
+  0% {
+    transform: rotate(-6deg) translateY(2px);
+  }
+  100% {
+    transform: rotate(4deg) translateY(-2px);
+  }
+}
+
+/* Post-Placement Cat Sits & Wags */
+.intro-cat-sprite.cat-placed {
+  animation: catSitPleased 0.8s forwards steps(1);
+}
+
+@keyframes catSitPleased {
+  0% {
+    background-position: -224px -96px; /* Alert */
+  }
+  50% {
+    background-position: -160px 0px; /* Scratch / happy */
+  }
+  100% {
+    background-position: -96px -96px; /* Sitting cute */
+  }
+}
+
+/* The Placed Center Stage */
+.placed-center-box {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  transform: translateY(0);
-}
-
-/* Rotating Orbital Rings */
-.orbit-ring {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.orbit-1 {
-  width: 220px;
-  height: 220px;
-  border: 1px dashed rgba(255, 255, 255, 0.25);
-  animation: rotateClockwise 12s linear infinite;
-}
-
-.orbit-2 {
-  width: 280px;
-  height: 280px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-left-color: rgba(255, 255, 255, 0.6);
-  border-right-color: rgba(255, 255, 255, 0.6);
-  animation: rotateCounter 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-.orbit-3 {
-  width: 340px;
-  height: 340px;
-  border: 1px dotted rgba(255, 255, 255, 0.15);
-  animation: rotateClockwise 20s linear infinite;
-}
-
-@keyframes rotateClockwise {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes rotateCounter {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
-}
-
-/* Central Monogram Emblem */
-.sig-emblem-box {
-  width: 130px;
-  height: 130px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-
-.sig-emblem-svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.emblem-path {
-  fill: none;
-  stroke: #ffffff;
-  stroke-width: 2.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 600;
-  stroke-dashoffset: 600;
-  animation: drawLaserStroke 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.emblem-core {
-  fill: #ffffff;
   opacity: 0;
-  transform-origin: center;
-  animation: corePulse 0.8s 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: scale(0.85);
+  animation: revealCenterLogo 0.8s 1.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes drawLaserStroke {
-  0% { stroke-dashoffset: 600; opacity: 0; }
-  20% { opacity: 1; }
-  100% { stroke-dashoffset: 0; opacity: 1; }
+@keyframes revealCenterLogo {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-@keyframes corePulse {
-  0% { opacity: 0; transform: scale(0.4); }
-  50% { opacity: 1; transform: scale(1.2); }
-  100% { opacity: 1; transform: scale(1); }
+.placed-logo-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: contain;
+  margin-bottom: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Typographic Reveal */
-.hero-signature-name {
+.intro-signature-text {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: #ffffff;
-  margin-bottom: 8px;
-  opacity: 0;
-  transform: translateY(14px);
-  animation: textSlideUp 0.9s 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  margin-bottom: 6px;
 }
 
-.hero-signature-tag {
+.intro-signature-sub {
   font-family: monospace;
-  font-size: clamp(0.72rem, 2vw, 0.85rem);
-  letter-spacing: 0.25em;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
   color: #8b949e;
   text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(14px);
-  animation: textSlideUp 0.9s 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.skip-pill-hint {
+/* Floating Heart over placed logo */
+.intro-heart-pop {
   position: absolute;
-  bottom: 30px;
+  top: -24px;
+  font-size: 20px;
+  opacity: 0;
+  animation: heartPop 0.8s 1.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heartPop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.4);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-24px) scale(1);
+  }
+}
+
+/* Skip hint */
+.intro-skip-text {
+  position: absolute;
+  bottom: 24px;
   font-family: monospace;
   font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 6px 14px;
-  border-radius: 999px;
-  opacity: 0;
-  animation: textSlideUp 0.8s 1.6s forwards;
-  z-index: 10;
-}
-
-@keyframes textSlideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  letter-spacing: 0.12em;
+  color: #6e7681;
+  text-transform: uppercase;
 }
 
 /* ===== CLEAN MONOCHROME PROJECTS SECTION ===== */
@@ -643,33 +659,26 @@ section h2 {
 </head>
 <body>
 
-  <!-- 🌌 QUANTUM CYBER AWAKENING SIGNATURE ENTRANCE -->
-  <div id="master-splash">
-    <canvas id="splash-canvas"></canvas>
-
-    <div class="orbit-ring orbit-1"></div>
-    <div class="orbit-ring orbit-2"></div>
-    <div class="orbit-ring orbit-3"></div>
-
-    <div class="holo-chamber">
-      <div class="sig-emblem-box">
-        <svg class="sig-emblem-svg" viewBox="0 0 100 100">
-          <!-- Cyber Octagonal Outer Defense Matrix -->
-          <polygon class="emblem-path" points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" />
-          <!-- Inner Precision Geometric Monogram "S" -->
-          <path class="emblem-path" d="M72,28 L34,28 L34,50 L68,50 L68,72 L28,72" />
-          <!-- Quantum Core Nodes -->
-          <circle class="emblem-core" cx="34" cy="28" r="3" />
-          <circle class="emblem-core" cx="68" cy="72" r="3" />
-          <circle class="emblem-core" cx="51" cy="50" r="2.5" />
-        </svg>
+  <!-- 🐱 PURE BLACK INTRO: WHITE CAT DRAGS LOGO TO CENTER -->
+  <div id="cat-intro-overlay">
+    <div class="intro-stage">
+      
+      <!-- Moving Cat Dragging Logo -->
+      <div class="cat-delivery-group" id="cat-delivery">
+        <div class="intro-cat-sprite" id="intro-cat"></div>
+        <img src="https://raw.githubusercontent.com/auguxt/auguxt.github.io/main/Logo_0.png" alt="Syed Sameer Logo" class="intro-dragged-logo" id="intro-dragged-logo">
       </div>
 
-      <div class="hero-signature-name">SYED SAMEER</div>
-      <div class="hero-signature-tag">// AUGUXT.DEV • CYBERSECURITY & DEV</div>
-    </div>
+      <!-- Placed Center Logo & Title Reveal -->
+      <div class="placed-center-box" id="placed-center">
+        <div class="intro-heart-pop">❤️</div>
+        <img src="https://raw.githubusercontent.com/auguxt/auguxt.github.io/main/Logo_0.png" alt="Syed Sameer Logo" class="placed-logo-img">
+        <div class="intro-signature-text">SYED SAMEER</div>
+        <div class="intro-signature-sub">// auguxt.dev • cybersecurity</div>
+      </div>
 
-    <div class="skip-pill-hint">Click anywhere to enter →</div>
+      <div class="intro-skip-text">Click anywhere to skip →</div>
+    </div>
   </div>
 
 
@@ -1095,126 +1104,37 @@ section h2 {
 })();
   </script>
 
-  <!-- Interactive Intro Particle Constellation & Warp Drive Script -->
+  <!-- Cat Drag Intro Controller Script -->
   <script>
   (function () {
-    const splash = document.getElementById('master-splash');
-    const canvas = document.getElementById('splash-canvas');
-    if (!splash || !canvas) return;
+    const overlay = document.getElementById('cat-intro-overlay');
+    const introCat = document.getElementById('intro-cat');
+    const draggedLogo = document.getElementById('intro-dragged-logo');
+    const delivery = document.getElementById('cat-delivery');
+    const centerBox = document.getElementById('placed-center');
+    if (!overlay) return;
 
-    const ctx = canvas.getContext('2d');
-    let width, height;
-    let particles = [];
-    let isWarping = false;
-    let animId;
+    // After walking to center (1.7s), cat sits and reveals logo
+    setTimeout(() => {
+      if (introCat) introCat.className = 'intro-cat-sprite cat-placed';
+      if (draggedLogo) draggedLogo.style.opacity = '0';
+    }, 1750);
 
-    function resize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    // Create 85 Interactive Cosmic Quantum Nodes
-    const particleCount = 85;
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        originX: Math.random() * width,
-        originY: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.8,
-        vy: (Math.random() - 0.5) * 0.8,
-        radius: Math.random() * 2 + 1,
-        alpha: Math.random() * 0.7 + 0.3
-      });
-    }
-
-    let mouseX = width / 2;
-    let mouseY = height / 2;
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    function renderParticles() {
-      ctx.clearRect(0, 0, width, height);
-
-      // Connect neural nodes with laser filaments
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 110) {
-            ctx.strokeStyle = `rgba(255, 255, 255, ${0.2 * (1 - dist / 110)})`;
-            ctx.lineWidth = 0.75;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      // Draw and animate particles
-      for (let p of particles) {
-        if (!isWarping) {
-          p.x += p.vx;
-          p.y += p.vy;
-
-          // Interactive mouse gravity push
-          const mdx = p.x - mouseX;
-          const mdy = p.y - mouseY;
-          const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
-          if (mdist < 140) {
-            p.x += (mdx / mdist) * 2;
-            p.y += (mdy / mdist) * 2;
-          }
-
-          if (p.x < 0) p.x = width;
-          if (p.x > width) p.x = 0;
-          if (p.y < 0) p.y = height;
-          if (p.y > height) p.y = 0;
-        } else {
-          // Hyperspace warp expansion!
-          const cx = width / 2;
-          const cy = height / 2;
-          p.x += (p.x - cx) * 0.08;
-          p.y += (p.y - cy) * 0.08;
-          p.radius *= 1.03;
-        }
-
-        ctx.fillStyle = '#ffffff';
-        ctx.globalAlpha = p.alpha;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      animId = requestAnimationFrame(renderParticles);
-    }
-    renderParticles();
-
-    function dismissSplash() {
-      if (splash.classList.contains('splash-dismissed')) return;
-      isWarping = true;
-      splash.classList.add('splash-dismissed');
-
+    function dismissIntro() {
+      if (overlay.classList.contains('intro-hidden')) return;
+      overlay.classList.add('intro-hidden');
       setTimeout(() => {
-        cancelAnimationFrame(animId);
-        if (splash.parentNode) splash.parentNode.removeChild(splash);
-      }, 850);
+        if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      }, 800);
     }
 
-    // Auto-dismiss after 2.8s of cinematic glory
-    const timer = setTimeout(dismissSplash, 2800);
+    // Auto-dismiss after 3.2s of delightful animation
+    const introTimer = setTimeout(dismissIntro, 3200);
 
     // Instant skip on click/tap
-    splash.addEventListener('click', () => {
-      clearTimeout(timer);
-      dismissSplash();
+    overlay.addEventListener('click', () => {
+      clearTimeout(introTimer);
+      dismissIntro();
     });
   })();
   </script>
