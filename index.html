@@ -56,7 +56,7 @@ body {
   height: 100%;
   object-fit: contain;
   border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+  box-shadow: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform-origin: center center;
   backface-visibility: hidden;
@@ -70,7 +70,7 @@ body {
 .logo-btn:hover img,
 .logo-btn:focus img {
   transform: scale(1.1);
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+  box-shadow: none;
 }
 
 /* ===== STARFIELD BACKGROUND ===== */
@@ -97,14 +97,14 @@ canvas#star-bg {
   background: rgba(40, 40, 40, 0.8);
   padding: 30px 50px;
   border-radius: 15px;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+  box-shadow: none;
   backdrop-filter: blur(6px);
 }
 .hero-box h1 {
   font-size: 3rem;
   letter-spacing: 1px;
   color: #fff;
-  text-shadow: 0 0 15px #00ffff33;
+  text-shadow: none;
 }
 .tagline {
   font-size: 1.3rem;
@@ -138,7 +138,7 @@ canvas#star-bg {
   padding: 25px 30px;
   border-radius: 15px;
   max-width: 800px;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+  box-shadow: none;
   font-size: 1.2rem;
   color: #eee;
   text-align: center;
@@ -150,7 +150,7 @@ canvas#star-bg {
 section h2 {
   font-size: 2rem;
   margin-bottom: 25px;
-  text-shadow: 0 0 10px #00ffff44;
+  text-shadow: none;
 }
 
 /* ===== SKILLS ===== */
@@ -173,7 +173,7 @@ section h2 {
 }
 .skills-list li:hover {
   transform: scale(1.12);
-  box-shadow: 0 0 20px #00ffff33;
+  box-shadow: none;
 }
 
 /* ===== PROJECTS ===== */
@@ -193,11 +193,11 @@ section h2 {
   color: #fff;
   text-decoration: none;
   transition: 0.3s;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  box-shadow: none;
 }
 .project-card:hover {
   transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 0 30px #00ffff33;
+  box-shadow: none;
 }
 
 /* ===== CERTIFICATES ===== */
@@ -216,7 +216,7 @@ section h2 {
   background: rgba(40, 40, 40, 0.9);
   padding: 15px 20px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  box-shadow: none;
   color: #ccc;
   transition: 0.3s;
   width: 90%;
@@ -224,7 +224,7 @@ section h2 {
 }
 .certificate-box:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px #00ffff44;
+  box-shadow: none;
 }
 .see-more-btn {
   display: inline-block;
@@ -239,7 +239,7 @@ section h2 {
 }
 .see-more-btn:hover {
   transform: scale(1.15);
-  box-shadow: 0 0 25px #00ffff55;
+  box-shadow: none;
 }
 
 /* ===== GAME ===== */
@@ -261,7 +261,7 @@ section h2 {
 #rps-game button:hover,
 #rps-game button:focus {
   transform: scale(1.08);
-  box-shadow: 0 0 20px #00ffff55;
+  box-shadow: none;
 }
 #rps-result {
   margin-top: 15px;
@@ -297,7 +297,7 @@ section h2 {
 }
 .contact-box:hover {
   transform: scale(1.15);
-  box-shadow: 0 0 25px #00ffff55;
+  box-shadow: none;
 }
 .resume-btn {
   background: #444;
@@ -310,7 +310,7 @@ section h2 {
 }
 .resume-btn:hover {
   transform: scale(1.15);
-  box-shadow: 0 0 25px #00ffff55;
+  box-shadow: none;
 }
 
 /* small responsive tweaks */
@@ -328,9 +328,350 @@ section h2 {
   }
   canvas#star-bg { background: #000; }
 }
-  </style>
+  
+/* ==========================================================================
+   🌌 CINEMATIC "QUANTUM CYBER AWAKENING" SIGNATURE ENTRANCE
+   ========================================================================== */
+#master-splash {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  z-index: 99999999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+}
+
+#master-splash.splash-dismissed {
+  opacity: 0;
+  transform: scale(1.15);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+/* Background Particle Canvas for Intro */
+#splash-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Central Hologram Chamber */
+.holo-chamber {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: translateY(0);
+}
+
+/* Rotating Orbital Rings */
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-1 {
+  width: 220px;
+  height: 220px;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  animation: rotateClockwise 12s linear infinite;
+}
+
+.orbit-2 {
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left-color: rgba(255, 255, 255, 0.6);
+  border-right-color: rgba(255, 255, 255, 0.6);
+  animation: rotateCounter 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.orbit-3 {
+  width: 340px;
+  height: 340px;
+  border: 1px dotted rgba(255, 255, 255, 0.15);
+  animation: rotateClockwise 20s linear infinite;
+}
+
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounter {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* Central Monogram Emblem */
+.sig-emblem-box {
+  width: 130px;
+  height: 130px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.sig-emblem-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.emblem-path {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: drawLaserStroke 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.emblem-core {
+  fill: #ffffff;
+  opacity: 0;
+  transform-origin: center;
+  animation: corePulse 0.8s 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes drawLaserStroke {
+  0% { stroke-dashoffset: 600; opacity: 0; }
+  20% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@keyframes corePulse {
+  0% { opacity: 0; transform: scale(0.4); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Typographic Reveal */
+.hero-signature-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: textSlideUp 0.9s 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-signature-tag {
+  font-family: monospace;
+  font-size: clamp(0.72rem, 2vw, 0.85rem);
+  letter-spacing: 0.25em;
+  color: #8b949e;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: textSlideUp 0.9s 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.skip-pill-hint {
+  position: absolute;
+  bottom: 30px;
+  font-family: monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 999px;
+  opacity: 0;
+  animation: textSlideUp 0.8s 1.6s forwards;
+  z-index: 10;
+}
+
+@keyframes textSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== CLEAN MONOCHROME PROJECTS SECTION ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.project-card-m3 {
+  background: #11141a;
+  border: 1px solid #222730;
+  border-radius: 14px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff;
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.project-card-m3:hover {
+  transform: translateY(-3px);
+  border-color: #ffffff;
+  background: #151a22;
+  box-shadow: none !important;
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.project-card-title {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.project-badge-pill {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: #1c2128;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  white-space: nowrap;
+}
+
+.project-card-desc {
+  font-size: 0.85rem;
+  color: #8b949e;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.project-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.tag-pill {
+  font-size: 0.72rem;
+  font-family: monospace;
+  background: #161b22;
+  border: 1px solid #30363d;
+  color: #8b949e;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.project-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #e6edf3;
+  background: #1c2128;
+  border: 1px solid #30363d;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.project-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.project-btn.primary {
+  background: #21262d;
+  border-color: #484f58;
+}
+
+.project-btn.primary:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.skill-box:hover, .certificate-box:hover, .contact-box:hover, .resume-btn:hover {
+  border-color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+</style>
 </head>
 <body>
+
+  <!-- 🌌 QUANTUM CYBER AWAKENING SIGNATURE ENTRANCE -->
+  <div id="master-splash">
+    <canvas id="splash-canvas"></canvas>
+
+    <div class="orbit-ring orbit-1"></div>
+    <div class="orbit-ring orbit-2"></div>
+    <div class="orbit-ring orbit-3"></div>
+
+    <div class="holo-chamber">
+      <div class="sig-emblem-box">
+        <svg class="sig-emblem-svg" viewBox="0 0 100 100">
+          <!-- Cyber Octagonal Outer Defense Matrix -->
+          <polygon class="emblem-path" points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" />
+          <!-- Inner Precision Geometric Monogram "S" -->
+          <path class="emblem-path" d="M72,28 L34,28 L34,50 L68,50 L68,72 L28,72" />
+          <!-- Quantum Core Nodes -->
+          <circle class="emblem-core" cx="34" cy="28" r="3" />
+          <circle class="emblem-core" cx="68" cy="72" r="3" />
+          <circle class="emblem-core" cx="51" cy="50" r="2.5" />
+        </svg>
+      </div>
+
+      <div class="hero-signature-name">SYED SAMEER</div>
+      <div class="hero-signature-tag">// AUGUXT.DEV • CYBERSECURITY & DEV</div>
+    </div>
+
+    <div class="skip-pill-hint">Click anywhere to enter →</div>
+  </div>
+
 
   <!-- LOGO -->
   <button id="logo-btn" class="logo-btn" aria-label="Home" title="Home">
@@ -380,7 +721,7 @@ section h2 {
   <section class="projects-section">
     <h2>Projects</h2>
     <div class="projects-grid">
-      <a href="https://auguxt.is-a.dev/wishcraft/" target="_blank" rel="noopener" class="project-card">🎂 WishCraft — Birthday Wish Link + QR Generator</a>
+      <a href="https://auguxt.dev/wishcraft/" target="_blank" rel="noopener" class="project-card">🎂 WishCraft — Birthday Wish Link + QR Generator</a>
       <a href="https://github.com/auguxt/vt-telegram-bot" target="_blank" rel="noopener" class="project-card">🦠 VirusTotal Telegram Bot</a>
       <a href="https://github.com/auguxt/cryptography-algorithms" target="_blank" rel="noopener" class="project-card">🔐 Cryptography Algorithms</a>
       <a href="https://github.com/auguxt/password-cracking-and-hashing" target="_blank" rel="noopener" class="project-card">🔑 Password Cracking & Hashing</a>
@@ -753,5 +1094,130 @@ section h2 {
 
 })();
   </script>
+
+  <!-- Interactive Intro Particle Constellation & Warp Drive Script -->
+  <script>
+  (function () {
+    const splash = document.getElementById('master-splash');
+    const canvas = document.getElementById('splash-canvas');
+    if (!splash || !canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    let isWarping = false;
+    let animId;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // Create 85 Interactive Cosmic Quantum Nodes
+    const particleCount = 85;
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        originX: Math.random() * width,
+        originY: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.8,
+        vy: (Math.random() - 0.5) * 0.8,
+        radius: Math.random() * 2 + 1,
+        alpha: Math.random() * 0.7 + 0.3
+      });
+    }
+
+    let mouseX = width / 2;
+    let mouseY = height / 2;
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function renderParticles() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Connect neural nodes with laser filaments
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 110) {
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.2 * (1 - dist / 110)})`;
+            ctx.lineWidth = 0.75;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw and animate particles
+      for (let p of particles) {
+        if (!isWarping) {
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // Interactive mouse gravity push
+          const mdx = p.x - mouseX;
+          const mdy = p.y - mouseY;
+          const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+          if (mdist < 140) {
+            p.x += (mdx / mdist) * 2;
+            p.y += (mdy / mdist) * 2;
+          }
+
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height;
+          if (p.y > height) p.y = 0;
+        } else {
+          // Hyperspace warp expansion!
+          const cx = width / 2;
+          const cy = height / 2;
+          p.x += (p.x - cx) * 0.08;
+          p.y += (p.y - cy) * 0.08;
+          p.radius *= 1.03;
+        }
+
+        ctx.fillStyle = '#ffffff';
+        ctx.globalAlpha = p.alpha;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      animId = requestAnimationFrame(renderParticles);
+    }
+    renderParticles();
+
+    function dismissSplash() {
+      if (splash.classList.contains('splash-dismissed')) return;
+      isWarping = true;
+      splash.classList.add('splash-dismissed');
+
+      setTimeout(() => {
+        cancelAnimationFrame(animId);
+        if (splash.parentNode) splash.parentNode.removeChild(splash);
+      }, 850);
+    }
+
+    // Auto-dismiss after 2.8s of cinematic glory
+    const timer = setTimeout(dismissSplash, 2800);
+
+    // Instant skip on click/tap
+    splash.addEventListener('click', () => {
+      clearTimeout(timer);
+      dismissSplash();
+    });
+  })();
+  </script>
+
 </body>
 </html>
